@@ -19,13 +19,13 @@ https://plin.estaleiro.serpro.gov.br/#/pages/home
 
 -------------------------------------------------------------------- 
 Em média:
-1 palavra em português ≈ 1,3 a 1,5 tokens
-1 palavra em inglês ≈ 1,2 tokens
+-1 palavra em português ≈ 1,3 a 1,5 tokens
+-1 palavra em inglês ≈ 1,2 tokens
 Isso depende da complexidade da palavra, uso de pontuação, acentuação e do idioma.
  
-Palavras comuns viram 1 token só (ex: "casa", "livro").
-Palavras longas ou pouco comuns podem virar 2 ou mais tokens (ex: "inconstitucionalissimamente" vira vários).
-A pontuação, espaços e acentos também contam como tokens separados ou combinados.
+- Palavras comuns viram 1 token só (ex: "casa", "livro").
+- Palavras longas ou pouco comuns podem virar 2 ou mais tokens (ex: "inconstitucionalissimamente" vira vários).
+- A pontuação, espaços e acentos também contam como tokens separados ou combinados.
 --------------------------------------------------------------------
 
 
