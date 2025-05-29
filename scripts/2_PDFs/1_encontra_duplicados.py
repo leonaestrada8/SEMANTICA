@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 """
 Mapeamento e movimentação de arquivos em dois passos,
-com relatório de quais arquivos foram detectados.
+com relatório de quais arquivos foram detectados e estatísticas de tamanho dos arquivos únicos em megabytes.
 """
 
 import hashlib
 import shutil
+import statistics
 from pathlib import Path
 
 # 1 Definição do diretório raiz (hard-coded)
-RAIZ            = Path(r"C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\convertidos_pdf")
+RAIZ            = Path(r"C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\convertidos_pdf2")
 UNIQUE_DIR      = RAIZ / "UNIQUE"
 REPETITION_DIR  = RAIZ / "REPETITION"
 
@@ -63,6 +64,7 @@ def mover_arquivos(mapeamento: dict[str, list[Path]]) -> None:
 
     cont_unicos    = 0
     cont_repetidos = 0
+    unique_sizes_mb   = []
 
     for arquivos in mapeamento.values():
         ordenados = sorted(arquivos)
@@ -74,25 +76,37 @@ def mover_arquivos(mapeamento: dict[str, list[Path]]) -> None:
             destino = UNIQUE_DIR / f"{original.stem}_{sufixo}{original.suffix}"
             sufixo += 1
         shutil.move(str(original), str(destino))
+        tamanho_mb = destino.stat().st_size / (1024 * 1024)
+        unique_sizes_mb.append(tamanho_mb)
         cont_unicos += 1
-        print(f"[único]    {original.relative_to(RAIZ)} → UNIQUE/{destino.name}")
+        print(f"[único]    {original.relative_to(RAIZ)} → UNIQUE/{destino.name} ({tamanho_mb:.2f} MB)")
 
         # demais → REPETITION
         for dup in ordenados[1:]:
-            destino = REPETITION_DIR / dup.name
-            sufixo = 1
-            while destino.exists():
-                destino = REPETITION_DIR / f"{dup.stem}_{sufixo}{dup.suffix}"
-                sufixo += 1
-            shutil.move(str(dup), str(destino))
+            destino_dup = REPETITION_DIR / dup.name
+            sufixo_dup = 1
+            while destino_dup.exists():
+                destino_dup = REPETITION_DIR / f"{dup.stem}_{sufixo_dup}{dup.suffix}"
+                sufixo_dup += 1
+            shutil.move(str(dup), str(destino_dup))
             cont_repetidos += 1
-            print(f"[repetido] {dup.relative_to(RAIZ)} → REPETITION/{destino.name}")
+            print(f"[repetido] {dup.relative_to(RAIZ)} → REPETITION/{destino_dup.name}")
 
     total = cont_unicos + cont_repetidos
     print("\n==== Estatísticas da Movimentação ====")
     print(f"Total processado: {total}")
     print(f"  • Únicos    : {cont_unicos}")
     print(f"  • Repetidos : {cont_repetidos}")
+
+    if unique_sizes_mb:
+        print("\n==== Estatísticas de Tamanho dos Arquivos Únicos (em MB) ====")
+        print(f"Tamanho mínimo   : {min(unique_sizes_mb):.2f} MB")
+        print(f"Tamanho máximo   : {max(unique_sizes_mb):.2f} MB")
+        print(f"Tamanho médio    : {statistics.mean(unique_sizes_mb):.2f} MB")
+        print(f"Mediana          : {statistics.median(unique_sizes_mb):.2f} MB")
+        if len(unique_sizes_mb) > 1:
+            print(f"Desvio padrão    : {statistics.stdev(unique_sizes_mb):.2f} MB")
+
 
 def main():
     if not RAIZ.exists() or not RAIZ.is_dir():

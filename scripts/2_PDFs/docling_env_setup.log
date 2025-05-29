@@ -1,6 +1,6 @@
 **********************
 PowerShell transcript start
-Start time: 20250527140354
+Start time: 20250528104427
 Username: SERPRO\S056558027
 RunAs User: SERPRO\S056558027
 Configuration Name: 
@@ -10,8 +10,8 @@ Copyright (c) Microsoft Corporation.
 
 https://aka.ms/vscode-powershell
 Type 'help' to get help.
-" -LogLevel 'Warning' -LogPath 'c:\Users\s056558027\AppData\Roaming\Code\logs\20250527T113419\window1\exthost\ms-vscode.powershell' -SessionDetailsPath 'c:\Users\s056558027\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-23296-690861.json' -FeatureFlags @() 
-Process ID: 41904
+" -LogLevel 'Warning' -LogPath 'c:\Users\s056558027\AppData\Roaming\Code\logs\20250528T104048\window1\exthost\ms-vscode.powershell' -SessionDetailsPath 'c:\Users\s056558027\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-21740-995148.json' -FeatureFlags @() 
+Process ID: 16012
 PSVersion: 7.5.1
 PSEdition: Core
 GitCommitId: 7.5.1
@@ -22,9 +22,9 @@ PSRemotingProtocolVersion: 2.3
 SerializationVersion: 1.1.0.1
 WSManStackVersion: 3.0
 **********************
-Transcript started, output file is C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs\docling_env_setup.log
-[INFO] Projeto: C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs
-[INFO] Venv:     C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs\docling_env
+Transcript started, output file is C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\GIT\scripts\2_PDFs\docling_env_setup.log
+[INFO] Projeto: C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\GIT\scripts\2_PDFs
+[INFO] Venv:     C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\docling_env
 [INFO] Usando ambiente existente
 [INFO] Ativando ambiente virtual...
 [INFO] Pulando atualização e instalação de dependências
@@ -33,14 +33,9 @@ numpy 1.26.4
 docling 2.34.0
 tensorflow 2.19.0
 [INFO] Executando script de conversão...
-KeyboardInterrupt
-PS>TerminatingError(): "The pipeline has been stopped."
->> TerminatingError(): "The pipeline has been stopped."
->> TerminatingError(): "The pipeline has been stopped."
-]633;A]633;P;Cwd=C:\x5cUsers\x5cs056558027\x5cDocuments\x5cSERPRO_DVLP\x5cconsignacao_semantica\x5cscripts\x5c2_PDFsPS C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs> ]633;B
-]633;A]633;P;Cwd=C:\x5cUsers\x5cs056558027\x5cDocuments\x5cSERPRO_DVLP\x5cconsignacao_semantica\x5cscripts\x5c2_PDFsPS C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs> ]633;B
-]633;A]633;P;Cwd=C:\x5cUsers\x5cs056558027\x5cDocuments\x5cSERPRO_DVLP\x5cconsignacao_semantica\x5cscripts\x5c2_PDFsPS C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs> ]633;B
-(docling_env) $global:__psEditorServices_userInput = $args[0]
-(docling_env) $global:__psEditorServices_userInput = ""
-(docling_env) CLEAR
-]633;D;0]633;A]633;P;Cwd=C:\x5cUsers\x5cs056558027\x5cDocuments\x5cSERPRO_DVLP\x5cconsignacao_semantica\x5cscripts\x5c2_PDFsPS C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs> ]633;B
+Nenhum PDF encontrado em C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\FILES\organizado\boletim de ocorrencia
+[INFO] Processo concluído com sucesso.
+**********************
+PowerShell transcript end
+End time: 20250528104606
+**********************

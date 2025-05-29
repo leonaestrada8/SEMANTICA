@@ -15,8 +15,8 @@ Start-Transcript -Path $logFile -Append
 
 # variáveis
 $pythonPath = 'C:\Program Files\Python310\python.exe'
-$projectDir = 'C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\scripts\2_PDFs'
-$venvDir    = Join-Path $projectDir 'docling_env'
+$projectDir = 'C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\GIT\scripts\2_PDFs'
+$venvDir    = 'C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\docling_env'
 $scriptPath = Join-Path $projectDir '2b_converte_md.py'
 
 Write-Host "[INFO] Projeto: $projectDir"

@@ -2,8 +2,8 @@ import os
 import shutil
 from pathlib import Path
 
-base_directory = Path(r"C:/Users/s056558027/Documents/SERPRO_DVLP/consignacao_semantica/convertidos_pdf")
-converted_directory = Path(r"C:/Users/s056558027/Documents/SERPRO_DVLP/consignacao_semantica/convertidos_pdf")
+base_directory = Path(r"C:\Users\s056558027\Documents\SERPRO_DVLP\consignacao_semantica\PDFs")
+converted_directory = Path(r"C:/Users/s056558027/Documents/SERPRO_DVLP/consignacao_semantica/convertidos_pdf2")
 
 converted_directory.mkdir(parents=True, exist_ok=True)
 
