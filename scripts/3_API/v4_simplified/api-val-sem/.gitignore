@@ -1,0 +1,150 @@
+# ====================
+# .gitignore - Projeto Semântica Consignação v3.1
+# ====================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Ambientes Virtuais
+semantica_env/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Logs e Saídas
+logs/
+*.log
+*.log.*
+
+# Dados de Output/Processamento
+JSON/
+*.json
+!requirements.json
+!package.json
+
+# Dados de Entrada (podem conter informações sensíveis)
+justificativas/
+*.txt
+!requirements.txt
+
+# Certificados SSL (podem ser regenerados)
+*.pem
+*.crt
+*.cer
+*.key
+
+# Configurações com Credenciais
+# ATENÇÃO: Se 0_config_v1.py contém credenciais reais, considere:
+# 0_config_v1.py
+# E crie um template: 0_config_template.py
+
+# Arquivos de Ambiente
+.env
+.env.local
+.env.production
+.env.staging
+*.env
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Arquivos Temporários
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Arquivos do Sistema Windows
+*.lnk
+desktop.ini
+$RECYCLE.BIN/
+
+# FastAPI/uvicorn
+.uvicorn/
+
+# Banco de Dados (se houver)
+*.db
+*.sqlite
+*.sqlite3
+
+# Estatísticas e Relatórios
+estatisticas.json
+relatorio_*.json
+processamento_*.json
+
+# Arquivos de Teste
+teste_*.json
+test_output/
+testing/
+
+# Arquivos Grandes (> 100MB)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Documentação Gerada
+docs/_build/
+site/
+
+# ====================
+# INSTRUÇÕES:
+# 
+# 1. CREDENCIAIS:
+#    - Se 0_config_v1.py contém credenciais reais,
+#      adicione à linha 67: 0_config_v1.py
+#    - Crie 0_config_template.py com placeholders
+#
+# 2. DADOS SENSÍVEIS:
+#    - justificativas/ pode conter CPF e dados pessoais
+#    - JSON/ pode conter resultados de processamento
+#    - logs/ pode conter informações sensíveis
+#
+# 3. CERTIFICADOS:
+#    - ca-pro.pem pode ser regenerado automaticamente
+#    - Se precisar versionar, remova *.pem da linha 42
+#
+# ====================

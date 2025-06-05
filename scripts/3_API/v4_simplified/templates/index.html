@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semântica Consignação API</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏛️ Semântica Consignação API</h1>
+            <p>Análise semântica para empréstimos consignados usando Serpro LLM</p>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalRequests">0</div>
+                <div class="stat-label">Total de Requisições</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalErrors">0</div>
+                <div class="stat-label">Total de Erros</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="errorRate">0%</div>
+                <div class="stat-label">Taxa de Erro</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="uptime">0s</div>
+                <div class="stat-label">Tempo Ativo</div>
+            </div>
+        </div>
+
+        <!-- Teste JSON Estruturado -->
+        <div class="section">
+            <h3>🔧 Teste de Análise Semântica</h3>
+            <p>Envie um JSON estruturado para análise:</p>
+            <textarea id="jsonInput" placeholder="Cole aqui o JSON estruturado...">{
+  "id_termo": "314166",
+  "cpf": "48956314785",
+  "pratica_vedada": "10,11",
+  "justificativa": "Estou sendo descontado sem autorização prévia do empréstimo consignado no valor de R$ 450,00 mensais. Nunca solicitei este empréstimo e não recebi nenhum valor creditado em minha conta."
+}</textarea>
+            <div class="button-group">
+                <button id="jsonBtn" class="btn-primary" onclick="testJson()">🧪 Analisar JSON</button>
+                <button class="btn-secondary" onclick="loadExample()">📄 Carregar Exemplo</button>
+            </div>
+            <div id="jsonResult" class="result"></div>
+        </div>
+
+        <!-- Processamento de Arquivo -->
+        <div class="section">
+            <h3>📁 Processamento de Arquivo</h3>
+            <p>Processe arquivos em lote através do WebSocket:</p>
+            <input type="text" id="filename" placeholder="Nome do arquivo (ex: 100.txt)" value="100.txt">
+            <button id="processBtn" class="btn-success" onclick="processFile()">🚀 Processar Arquivo</button>
+            <div id="fileProgress" class="progress"></div>
+        </div>
+
+        <!-- Log em Tempo Real -->
+        <div class="section">
+            <h3>📊 Log em Tempo Real</h3>
+            <div id="logArea" class="log-area">[Conectando WebSocket...]\n</div>
+            <button class="btn-warning" onclick="clearLog()">🗑️ Limpar Log</button>
+        </div>
+
+        <!-- Logs do Sistema -->
+        <div class="section">
+            <h3>📋 Logs do Sistema</h3>
+            <p>Visualize os logs recentes da aplicação:</p>
+            <button id="loadLogsBtn" class="btn-info" onclick="loadSystemLogs()">📥 Carregar Logs Recentes</button>
+            <div id="systemLogs" class="log-area" style="display: none; margin-top: 15px;">
+                [Clique em "Carregar Logs Recentes" para visualizar]
+            </div>
+        </div>
+
+        <!-- Links Úteis -->
+        <div class="section">
+            <h3>🔗 Links Úteis</h3>
+            <div class="links">
+                <a href="/docs" class="btn-info" target="_blank">📚 Swagger Docs</a>
+                <a href="/health" class="btn-info" target="_blank">❤️ Health Check</a>
+                <a href="/stats" class="btn-info" target="_blank">📊 Estatísticas</a>
+                <a href="/logs" class="btn-info" target="_blank">📋 Logs API</a>
+            </div>
+        </div>
+
+        <!-- Informações do Sistema -->
+        <div class="section">
+            <h3>ℹ️ Informações</h3>
+            <p><strong>Formato Aceito:</strong> Apenas JSON estruturado com os campos:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><code>id_termo</code>: Identificador do termo</li>
+                <li><code>cpf</code>: CPF do cliente (11 dígitos)</li>
+                <li><code>pratica_vedada</code>: Código da prática vedada</li>
+                <li><code>justificativa</code>: Texto com no mínimo 10 caracteres</li>
+            </ul>
+            <br>
+            <p><strong>Critérios Aceitos:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>✅ Consignação sem autorização prévia</li>
+                <li>✅ Consignação sem crédito do valor</li>
+                <li>✅ Desconto de contrato já liquidado</li>
+            </ul>
+            <br>
+            <p><strong>Critérios Rejeitados:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>❌ Rediscussão de contrato (taxas, etc.)</li>
+                <li>❌ Solicitação de boletos</li>
+            </ul>
+            <br>
+            <p><strong>Classificações:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>APPROVED:</strong> SIM + confiança ≥ 70%</li>
+                <li><strong>REVIEW_REQUIRED:</strong> SIM + confiança 50-69%</li>
+                <li><strong>REJECTED:</strong> NÃO ou confiança < 50%</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
